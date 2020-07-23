@@ -29,6 +29,9 @@
     <string name="label_random_word">Random word</string>
     <string name="label_pronunciation">Pronunciation</string>
 
+    <string name="context_menu_copy">Copy</string>
+    <string name="context_menu_translate">Translate</string>
+
     <string name="placeholder_loading">Loading…</string>
     <string name="placeholder_success">No Results</string>
     <string name="placeholder_error">Something went wrong</string>
