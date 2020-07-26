@@ -2,4 +2,5 @@
 <resources>
     <string name="key_shared_preference_empty_results_hidden">empty_results_hidden</string>
     <string name="key_shared_preference_pages_to_show">pages_to_show</string>
+    <string name="key_shared_preference_translation_language">translation_language</string>
 </resources>

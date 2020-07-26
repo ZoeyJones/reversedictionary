@@ -1,10 +1,13 @@
 package com.gscanlon21.reversedictionary.ui.main.adapter
 
+import android.content.ActivityNotFoundException
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
+import android.net.Uri
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.RelativeSizeSpan
@@ -24,6 +27,8 @@ import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.gscanlon21.reversedictionary.R
+import com.gscanlon21.reversedictionary.extension.defaultSharedPreferences
+import com.gscanlon21.reversedictionary.extension.translationLanguageCode
 import com.gscanlon21.reversedictionary.ui.main.MainActivity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -84,7 +89,7 @@ class ListItemAdapter<T : IListItem>(private val context: Context) : RecyclerVie
         popup.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.copy -> copyToClipboard(holder.itemView, holder.text.text)
-                R.id.translate -> false
+                R.id.translate -> translateText(holder.itemView, holder.text.text.split("\t").last())
                 else -> false
             }
         }
@@ -119,6 +124,24 @@ class ListItemAdapter<T : IListItem>(private val context: Context) : RecyclerVie
 //        }
 //        return SpannedString(definition)
 //    }
+
+    private fun translateText(v: View, text: CharSequence): Boolean {
+        try {
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_TEXT, text)
+            intent.component = ComponentName(
+                "com.google.android.apps.translate",
+                "com.google.android.apps.translate.TranslateActivity"
+            )
+            v.context.startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            val toLang = v.context.defaultSharedPreferences().translationLanguageCode(v.context)
+            val link = "https://translate.google.com/#view=home&op=translate&sl=en&tl=$toLang&text=$text"
+            v.context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
+        }
+        return true
+    }
 
     private fun copyToClipboard(v: View, text: CharSequence): Boolean {
         val clipboard = getSystemService(v.context, ClipboardManager::class.java)

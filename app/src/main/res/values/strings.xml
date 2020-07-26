@@ -46,7 +46,12 @@
 
     <string name="preference_title_hide_empty_page">Hide Pages with No Results</string>
     <string name="preference_title_pages_to_show">Pages to Show</string>
+    <string name="preference_title_translation_language">Preferred Translation Language</string>
     <string name="preference_summary_paged_to_show">Used to control which pages are visible after searching for a word</string>
+    <string name="preference_summary_translation_language">Only applies when the Google Translate is not installed</string>
+
+    <string name="translation_language_spanish">Spanish</string>
+    <string name="translation_language_code_spanish">es</string>
 
     <string-array name="empty_array"/>
 
@@ -68,5 +73,12 @@
         <item>@string/search_result_tab_meronym</item>
         <item>@string/search_result_tab_predecessor</item>
         <item>@string/search_result_tab_follower</item>
+    </string-array>
+
+    <string-array name="translation_language">
+        <item>@string/translation_language_spanish</item>
+    </string-array>
+    <string-array name="translation_language_codes">
+        <item>@string/translation_language_code_spanish</item>
     </string-array>
 </resources>

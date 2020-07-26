@@ -17,6 +17,16 @@
         android:defaultValue="@array/search_result_preference"
         />
 
+    <ListPreference
+        android:key="@string/key_shared_preference_translation_language"
+        android:dialogTitle="@string/preference_title_translation_language"
+        android:title="@string/preference_title_translation_language"
+        android:summary="@string/preference_summary_translation_language"
+        android:entries="@array/translation_language"
+        android:entryValues="@array/translation_language_codes"
+        android:defaultValue="@string/translation_language_code_spanish"
+        />
+
     <Preference
         android:title="About"
         android:summary="Data provided by the Datamuse and the Wordnik Api"
