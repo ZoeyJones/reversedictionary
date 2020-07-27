@@ -31,13 +31,15 @@
 
     <string name="context_menu_copy">Copy</string>
     <string name="context_menu_translate">Translate</string>
-
+    <string name="context_menu_attribution">View Attribution</string>
+    
     <string name="placeholder_loading">Loading…</string>
     <string name="placeholder_success">No Results</string>
     <string name="placeholder_error">Something went wrong</string>
     <string name="placeholder_scrabble_score">Scrabble Score: %1$d</string>
 
     <string name="content_description_settings">Settings</string>
+    <string name="content_description_logo_wordnik">Wordnik Logo</string>
 
     <string name="search_for_query_hint">Enter a word or phrase</string>
 
@@ -45,14 +47,18 @@
     <string name="error_user_preference_invalid">The preference could not be saved</string>
 
     <string name="preference_title_hide_empty_page">Hide Pages with No Results</string>
+    <string name="preference_title_hide_no_definitions">Hide Words without Definitions</string>
     <string name="preference_title_pages_to_show">Pages to Show</string>
     <string name="preference_title_translation_language">Preferred Translation Language</string>
+    <string name="preference_title_attribution">Data Sources</string>
     <string name="preference_summary_paged_to_show">Used to control which pages are visible after searching for a word</string>
     <string name="preference_summary_translation_language">Only applies when the Google Translate is not installed</string>
+    <string name="preference_summary_pages_to_show">Used to control which pages are visible after searching for a word</string>
+    <string name="preference_summary_hide_no_definitions">May help prevent odd words that have no real meaning</string>
 
-    <string name="translation_language_spanish">Spanish</string>
+ 	<string name="translation_language_spanish">Spanish</string>
     <string name="translation_language_code_spanish">es</string>
-
+    
     <string-array name="empty_array"/>
 
     <string-array name="search_result_preference">
