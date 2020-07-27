@@ -35,7 +35,7 @@ abstract class ListItemFragment<T : IListItem> : MainFragment() {
     }
 
     protected lateinit var listItemAdapter: ListItemAdapter<IListItem>
-    protected val resourceObserver = Observer<ViewResource<List<T>>> { resource ->
+    protected val resourceObserver = Observer<ViewResource<List<T>?>> { resource ->
         val results = when (resource) {
             is ViewResource.WithData.Success -> onSuccess(resource)
             is ViewResource.WithData.Loading -> onLoading(resource)
@@ -54,11 +54,11 @@ abstract class ListItemFragment<T : IListItem> : MainFragment() {
         listItemAdapter.notifyDataSetChanged()
     }
 
-    private fun onSuccess(resource: ViewResource.WithData.Success<List<T>>): List<IListItem> {
+    private fun onSuccess(resource: ViewResource.WithData.Success<List<T>?>): List<IListItem> {
         return resource.data ?: listOf(ListItem(getString(R.string.placeholder_success)))
     }
 
-    private fun onLoading(resource: ViewResource.WithData.Loading<List<T>>): List<IListItem> {
+    private fun onLoading(resource: ViewResource.WithData.Loading<List<T>?>): List<IListItem> {
         return resource.data ?: listOf(ListItem(getString(R.string.placeholder_loading)))
     }
 
